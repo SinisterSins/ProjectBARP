@@ -19,12 +19,14 @@ public class PlayerController : MonoBehaviour
 
     private float groundRayLength;
     private float wallCheckDistance;
-    public LayerMask groundLayer;                  // filter out only platform ground
+    public LayerMask groundLayer;
 
     private Vector3 originalPosition;
 
-
-
+    
+    public Transform punchPoint; // empty GameObject placed slightly in front of player
+    public float punchRadius = 1.0f;
+    public LayerMask enemyLayers;
 
     void Start()
     {
@@ -33,7 +35,6 @@ public class PlayerController : MonoBehaviour
         slideRotation = Quaternion.Euler(0f, 0f, 90f);
         transform.rotation = uprightRotation;
 
-        // lock rotation
         rb.constraints = RigidbodyConstraints.FreezeRotation;
 
         Collider col = GetComponent<Collider>();
@@ -49,55 +50,37 @@ public class PlayerController : MonoBehaviour
         Vector3 leftRayOrigin = transform.position + Vector3.left * wallCheckDistance;
 
         isGrounded = Physics.Raycast(rightRayOrigin, Vector3.down, groundRayLength, groundLayer) ||
-            Physics.Raycast(groundRayOrigin, Vector3.down, groundRayLength, groundLayer) ||
-            Physics.Raycast(leftRayOrigin, Vector3.down, groundRayLength, groundLayer);
+                     Physics.Raycast(groundRayOrigin, Vector3.down, groundRayLength, groundLayer) ||
+                     Physics.Raycast(leftRayOrigin, Vector3.down, groundRayLength, groundLayer);
 
-        
-        //isGrounded = Physics.Raycast(transform.position, Vector3.down, groundRayLength, groundLayer);
-        
-
-
-
-        Vector3 topRayOrigin = transform.position + Vector3.up * groundRayLength; //using groundRayLength because it stores half of the height value
+        Vector3 topRayOrigin = transform.position + Vector3.up * groundRayLength;
         Vector3 centerRayOrigin = transform.position;
         Vector3 bottomRayOrigin = transform.position + Vector3.down * groundRayLength;
-        
-        //Debug.Log("T: " + topRayOrigin + " ||| C: " + centerRayOrigin + " ||| B: " + bottomRayOrigin);
-        
+
         bool wallAhead =
             Physics.Raycast(topRayOrigin, Vector3.right, wallCheckDistance, groundLayer) ||
             Physics.Raycast(centerRayOrigin, Vector3.right, wallCheckDistance, groundLayer) ||
             Physics.Raycast(bottomRayOrigin, Vector3.right, wallCheckDistance, groundLayer);
 
-        Debug.Log("Grounded? " + isGrounded +" ||| Wall? " + wallAhead + " ||| Speed: " + rb.linearVelocity.x + " ||| VSpeed: " + rb.linearVelocity.y); 
-        
-        // constant forward movement
         if (wallAhead)
-            {
-                // stop forward motion
-                rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y - 5f * Time.deltaTime, 0f);
-            }
+        {
+            rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y - 5f * Time.deltaTime, 0f);
+        }
         else
-            {
-                // normal forward autorun
-                rb.linearVelocity = new Vector3(runSpeed, rb.linearVelocity.y, 0f);
-            }
+        {
+            rb.linearVelocity = new Vector3(runSpeed, rb.linearVelocity.y, 0f);
+        }
 
-        //Debug.Log("Grounded? " + isGrounded + "; Wall? " + wallAhead + "; " + rb.linearVelocity.x);
-
-        // Jump with W or Up Arrow
         if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && isGrounded)
         {
             Jump();
         }
 
-        // Slide with S or Down Arrow
         if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && isGrounded && !isSliding)
         {
             StartSlide();
         }
 
-        // Countdown slide duration
         if (isSliding)
         {
             slideTimer -= Time.deltaTime;
@@ -112,7 +95,6 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         }
 
-        // if the player taps jump instead of holding it, it will jump less high
         if (rb.linearVelocity.y > 0 && !Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.UpArrow))
         {
             rb.linearVelocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
@@ -123,15 +105,17 @@ public class PlayerController : MonoBehaviour
             ResetPlayer();
         }
 
-
+        
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            Punch();
+        }
     }
 
     void Jump()
     {
         if (isSliding)
-        {
             EndSlide();
-        }
 
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }
@@ -154,8 +138,25 @@ public class PlayerController : MonoBehaviour
         transform.position = originalPosition;
     }
 
+    void Punch()
+    {
+        Debug.Log("Punched!");
 
-   
+        Collider[] hitEnemies = Physics.OverlapSphere(punchPoint.position, punchRadius, enemyLayers);
+
+        foreach (Collider enemy in hitEnemies)
+        {
+           // Debug.Log("hit " + enemy.name);
+            //enemy.GetComponent<EnemyController>()?.Die();
+        }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        if (punchPoint == null)
+            return;
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(punchPoint.position, punchRadius);
+    }
 }
-
-
