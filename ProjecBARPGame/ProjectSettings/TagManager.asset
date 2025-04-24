@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - LevelPortal
   - TimePortal
+  - ProjectileEnemy
+  - Projectile
   layers:
   - Default
   - TransparentFX

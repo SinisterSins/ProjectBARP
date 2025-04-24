@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
             Physics.Raycast(centerRayOrigin, Vector3.right, wallCheckDistance, groundLayer) ||
             Physics.Raycast(bottomRayOrigin, Vector3.right, wallCheckDistance, groundLayer);
 
-        Debug.Log("Grounded? " + isGrounded + ". WallAhead? " + wallAhead);
+        //Debug.Log("Grounded? " + isGrounded + ". WallAhead? " + wallAhead);
 
         // if player is obstructed, stop applying forward velocity
         if (wallAhead)
@@ -186,6 +186,11 @@ public class PlayerController : MonoBehaviour
         else if (other.CompareTag("TimePortal"))
         {
             transform.position = other.gameObject.transform.GetChild(0).gameObject.transform.position;
+        }
+        else if (other.CompareTag("Projectile"))
+        {
+            Debug.Log("I died to: " + other.name);
+            Die();
         }
     }
 }
