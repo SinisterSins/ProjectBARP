@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Ground_Prehistoric_0: 5122105836391617597
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
