@@ -16,7 +16,6 @@ public class PlayerController : MonoBehaviour
     // player orientation constants
     private Quaternion uprightRotation;
     private Quaternion slideRotation;
-    private Vector3 originalPosition;
 
     // jump and fall physics
     public float fallMultiplier = 2.5f; 
@@ -47,7 +46,6 @@ public class PlayerController : MonoBehaviour
         Collider col = GetComponent<Collider>();
         groundRayLength = col.bounds.size.y / 2f;
         wallCheckDistance = col.bounds.size.x / 2f;
-        originalPosition = transform.position;
     }
 
     void Update()
@@ -70,6 +68,8 @@ public class PlayerController : MonoBehaviour
             Physics.Raycast(topRayOrigin, Vector3.right, wallCheckDistance, groundLayer) ||
             Physics.Raycast(centerRayOrigin, Vector3.right, wallCheckDistance, groundLayer) ||
             Physics.Raycast(bottomRayOrigin, Vector3.right, wallCheckDistance, groundLayer);
+
+        Debug.Log("Grounded? " + isGrounded + ". WallAhead? " + wallAhead);
 
         // if player is obstructed, stop applying forward velocity
         if (wallAhead)
@@ -118,7 +118,7 @@ public class PlayerController : MonoBehaviour
         // auto resetter if player falls out of world -- will be deleted upon completion of player death
         if (transform.position.y <= -100)
         {
-            ResetPlayer();
+            Die();
         }
 
         // punch
@@ -150,11 +150,6 @@ public class PlayerController : MonoBehaviour
         transform.rotation = uprightRotation;
     }
 
-    void ResetPlayer()
-    {
-        transform.position = originalPosition;
-    }
-
     void Punch()
     {
 
@@ -172,7 +167,7 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         Debug.Log("I died :(");
-        ResetPlayer();
+        GameMaster.gm.RestartLevel();
     }
 
     public void Bounce()
@@ -187,6 +182,10 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("LevelPortal"))
         {
             GameMaster.gm.LoadNextLevel();
+        }
+        else if (other.CompareTag("TimePortal"))
+        {
+            transform.position = other.gameObject.transform.GetChild(0).gameObject.transform.position;
         }
     }
 }
