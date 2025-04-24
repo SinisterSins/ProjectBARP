@@ -157,7 +157,6 @@ public class PlayerController : MonoBehaviour
 
     void Punch()
     {
-        Debug.Log("punched");
 
         // returns an array of Collider enemyObjects that are inside the player`s punch hitbox
         Collider[] hitEnemies = Physics.OverlapSphere(punchPoint.position, punchRadius, enemyLayer);
@@ -180,5 +179,14 @@ public class PlayerController : MonoBehaviour
     {
         rb.linearVelocity =  new Vector3(rb.linearVelocity.x, 0f, 0f);
         rb.AddForce(Vector3.up * jumpForce * 0.75f, ForceMode.Impulse);
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Collided with: " + other.name);
+        if (other.CompareTag("LevelPortal"))
+        {
+            GameMaster.gm.LoadNextLevel();
+        }
     }
 }

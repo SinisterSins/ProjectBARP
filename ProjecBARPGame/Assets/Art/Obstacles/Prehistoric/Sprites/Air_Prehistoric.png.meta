@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Air_Prehistoric_0: -3366486241864239145
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
