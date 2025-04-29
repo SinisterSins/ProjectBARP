@@ -44,8 +44,8 @@ public class PlayerController : MonoBehaviour
 
         // defines distances for collision detection raycasts
         Collider col = GetComponent<Collider>();
-        groundRayLength = col.bounds.size.y / 2f;
-        wallCheckDistance = col.bounds.size.x / 2f;
+        groundRayLength = col.bounds.size.y / 2f + 0.1f;
+        wallCheckDistance = col.bounds.size.x / 2f + 0.1f;
     }
 
     void Update()
@@ -152,7 +152,7 @@ public class PlayerController : MonoBehaviour
 
     void Punch()
     {
-
+        Debug.Log("punched!");
         // returns an array of Collider enemyObjects that are inside the player`s punch hitbox
         Collider[] hitEnemies = Physics.OverlapSphere(punchPoint.position, punchRadius, enemyLayer);
         // iterates thru each Collider enemyObject and kills them
