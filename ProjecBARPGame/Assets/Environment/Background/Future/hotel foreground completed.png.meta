@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8cc815c91a32fff4080ad0040aa5be26
+guid: 38c85ded27179e149a78c3522bdfbe12
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1717589205013956624
-    second: Sky Complete_0
+      213: 6181034334094807963
+    second: hotel foreground completed_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sky Complete_0
+      name: hotel foreground completed_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 2000
-        height: 639
+        width: 366
+        height: 686
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0f7f81dd7b5e928e0800000000000000
-      internalID: -1717589205013956624
+      spriteID: b93d6347af177c550800000000000000
+      internalID: 6181034334094807963
       vertices: []
       indices: 
       edges: []
@@ -173,8 +173,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Sky Complete_0: -1717589205013956624
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
