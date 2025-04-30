@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 
     // player orientation constants
     private Quaternion uprightRotation;
-    //private Quaternion slideRotation;
+    private Quaternion slideRotation;
 
     // jump and fall physics
     public float fallMultiplier = 2.5f; 
