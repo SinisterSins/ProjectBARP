@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 
     // player orientation constants
     private Quaternion uprightRotation;
-    private Quaternion slideRotation;
+    //private Quaternion slideRotation;
 
     // jump and fall physics
     public float fallMultiplier = 2.5f; 
@@ -141,13 +141,14 @@ public class PlayerController : MonoBehaviour
     {
         isSliding = true;
         slideTimer = slideDuration;
-        transform.rotation = slideRotation;
+        //transform.rotation = slideRotation;
+        // ^ we need to make this adjust the collider size instead of full object rotation we should have this be half the height of our starting collider.
     }
 
     void EndSlide()
     {
         isSliding = false;
-        transform.rotation = uprightRotation;
+        //transform.rotation = uprightRotation;
     }
 
     void Punch()
