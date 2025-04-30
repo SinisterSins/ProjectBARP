@@ -44,5 +44,12 @@ public class ChangeStates : MonoBehaviour
 
             Debug.Log("player blocked");
         }
+
+      // if (Die())
+        {
+        //    myAnimator.SetTrigger(name: "DoDeath");
+
+        //    Debug.Log("player died");
+        }
     }
 }
