@@ -3473,6 +3473,7 @@ GameObject:
   - component: {fileID: 754625550}
   - component: {fileID: 754625552}
   - component: {fileID: 754625553}
+  - component: {fileID: 754625554}
   m_Layer: 0
   m_Name: PlayerSprite
   m_TagString: Untagged
@@ -3560,7 +3561,7 @@ Animator:
   m_GameObject: {fileID: 754625549}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 018108a61bbdbda47a463c93bf462589, type: 2}
+  m_Controller: {fileID: 9100000, guid: bed314785f9fa684cbe6de197cd2a9b0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3572,6 +3573,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &754625554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754625549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f62a77c8e8c3364199e58438a3def9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &757286966
 GameObject:
   m_ObjectHideFlags: 0
@@ -3707,7 +3720,7 @@ Transform:
   m_GameObject: {fileID: 770319414}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.558479, y: 11.212956, z: -7.08}
+  m_LocalPosition: {x: -11.55689, y: 11.212956, z: -7.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9449,7 +9462,7 @@ Transform:
   m_GameObject: {fileID: 2087740829}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.558479, y: 11.212956, z: -7.08}
+  m_LocalPosition: {x: -11.55689, y: 11.212956, z: -7.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
