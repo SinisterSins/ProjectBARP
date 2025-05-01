@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      small house foreground completed_0: 1903159571075683061
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

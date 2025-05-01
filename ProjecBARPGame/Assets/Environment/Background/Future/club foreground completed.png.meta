@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      club foreground completed_0: -4729613731918650120
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

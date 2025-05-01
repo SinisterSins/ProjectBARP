@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      blue car midground completed_0: 5011790853288842749
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

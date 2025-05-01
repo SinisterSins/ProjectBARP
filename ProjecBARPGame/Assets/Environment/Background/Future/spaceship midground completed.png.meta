@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      spaceship midground completed_0: -3862918754809280049
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

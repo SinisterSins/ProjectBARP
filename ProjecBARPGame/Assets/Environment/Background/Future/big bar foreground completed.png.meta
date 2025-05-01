@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      big bar foreground completed_0: -8868445694297506407
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

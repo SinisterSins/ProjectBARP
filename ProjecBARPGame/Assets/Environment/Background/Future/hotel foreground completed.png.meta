@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      hotel foreground completed_0: 6181034334094807963
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
