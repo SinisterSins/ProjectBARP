@@ -348,7 +348,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      TempPortal_0: 3723227795349326573
+      TempPortal_1: -250851200918351233
+      TempPortal_2: -9022886116187720284
+      TempPortal_3: 8825034563435638775
+      TempPortal_4: -8118801838758153792
+      TempPortal_5: 3447726946484566456
+      TempPortal_6: -8405738199465549047
+      TempPortal_7: -1351039446803444066
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
