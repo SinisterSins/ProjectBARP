@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 17b992276cfac1d4c832a939393e15cf
+  - enabled: 1
     path: Assets/Scenes/Initializer.unity
     guid: 7baa70d05c65acd42808aa2352fb284f
   - enabled: 1
@@ -14,9 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lvl 1 graybox.unity
     guid: d469faed854de8b49a567126a8909a0f
-  - enabled: 1
-    path: Assets/ParallaxTest/Prehistoric Parallax Test.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
     path: Assets/Scenes/FrameworkScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729

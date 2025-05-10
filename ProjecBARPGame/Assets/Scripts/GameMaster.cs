@@ -24,7 +24,7 @@ public class GameMaster : MonoBehaviour
     void Start()
     {
         // move to the first level. this is a WIP until we have a menu screen/scene etc
-        if (SceneManager.GetActiveScene().buildIndex == 0)
+        if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             LoadNextLevel();
         }
