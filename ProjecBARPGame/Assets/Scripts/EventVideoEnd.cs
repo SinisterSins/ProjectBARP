@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 public class EventVideoEnd : MonoBehaviour
 {
     [SerializeField] private VideoPlayer videoPlayer;
+    [SerializeField] private string sceneToLoad;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,7 +21,7 @@ public class EventVideoEnd : MonoBehaviour
 
     void OnLoopPointReached(VideoPlayer vp)
     {
-        SceneManager.LoadScene("Initializer");
+        SceneManager.LoadScene(sceneToLoad);
         Debug.Log("Video ended");
     }
 }

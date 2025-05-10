@@ -279,6 +279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   videoPlayer: {fileID: 157676568}
+  sceneToLoad: Initializer
 --- !u!1 &285339397
 GameObject:
   m_ObjectHideFlags: 0
