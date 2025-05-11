@@ -30,6 +30,11 @@ public class PlayerController : MonoBehaviour
     public Transform punchPoint; // empty GameObject placed slightly in front of player
     public float punchRadius = 1.0f;
     public LayerMask enemyLayer;
+    
+    // collider sizes
+    private BoxCollider playerCollider;
+    private Vector3 originalColliderSize;
+    private Vector3 originalColliderCenter; 
 
     void Start()
     {
@@ -38,6 +43,11 @@ public class PlayerController : MonoBehaviour
         uprightRotation = Quaternion.Euler(0f, 0f, 0f);
         slideRotation = Quaternion.Euler(0f, 0f, 90f);
         transform.rotation = uprightRotation;
+        
+        //get player collider default size
+        playerCollider = GetComponent<BoxCollider>();
+        originalColliderSize = playerCollider.size;
+        originalColliderCenter = playerCollider.center;
 
         // lock the players rotation to prevent unnecessary rotation
         rb.constraints = RigidbodyConstraints.FreezeRotation;
@@ -140,6 +150,9 @@ public class PlayerController : MonoBehaviour
     void StartSlide()
     {
         isSliding = true;
+        playerCollider.size = new Vector3(originalColliderSize.x, originalColliderSize.y / 2, originalColliderSize.z);
+        playerCollider.center = new Vector3(originalColliderCenter.x, -0.25f,
+            originalColliderCenter.z); //lower center on the y when sliding
         slideTimer = slideDuration;
         //transform.rotation = slideRotation;
         // ^ we need to make this adjust the collider size instead of full object rotation we should have this be half the height of our starting collider.
@@ -147,6 +160,8 @@ public class PlayerController : MonoBehaviour
 
     void EndSlide()
     {
+        playerCollider.size = originalColliderSize;
+        playerCollider.center = originalColliderCenter;
         isSliding = false;
         //transform.rotation = uprightRotation;
     }
