@@ -150,7 +150,7 @@ public class PlayerController : MonoBehaviour
     void StartSlide()
     {
         isSliding = true;
-        playerCollider.size = new Vector3(originalColliderSize.x, originalColliderSize.y / 2, originalColliderSize.z);
+        playerCollider.size = new Vector3(originalColliderSize.x, -0.45f, originalColliderSize.z);
         playerCollider.center = new Vector3(originalColliderCenter.x, -0.25f,
             originalColliderCenter.z); //lower center on the y when sliding
         slideTimer = slideDuration;
